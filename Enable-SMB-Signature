@@ -1,0 +1,7 @@
+# Obtener la configuración del servidor SMB
+$smbConfig = Get-SmbServerConfiguration
+
+# Verificar si RequireSecuritySignature está en False
+if ($smbConfig.RequireSecuritySignature -eq $false) {
+    Set-SmbServerConfiguration -RequireSecuritySignature $true -Confirm:$false
+}
